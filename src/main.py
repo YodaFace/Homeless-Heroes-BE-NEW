@@ -7,7 +7,7 @@ from flask_migrate import Migrate
 from flask_swagger import swagger
 from flask_cors import CORS
 from utils import APIException, generate_sitemap
-from models import db
+from models import db, Homeless_User, Shelter, Contributor, Deposit
 #from models import Person
 
 app = Flask(__name__)
@@ -41,3 +41,14 @@ def handle_hello():
 if __name__ == '__main__':
     PORT = int(os.environ.get('PORT', 3000))
     app.run(host='0.0.0.0', port=PORT, debug=False)
+
+
+@app.route('/homeless', methods=['POST', 'GET'])
+def who_is_homeless():
+
+    response_body = {
+        "hello": "world"
+    }
+
+    return jsonify(response_body), 200
+
