@@ -5,10 +5,12 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
+import { LogIn } from "./views/login";
 import injectContext from "./store/appContext";
 
 import { NavBar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import "./../styles/home.scss";
 
 //create your first component
 export const Layout = () => {
@@ -25,6 +27,7 @@ export const Layout = () => {
 						<Route exact path="/" component={Home} />
 						<Route path="/demo" component={Demo} />
 						<Route path="/single/:theid" component={Single} />
+						<Route path="/login" component={LogIn} />
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
 					<Footer />
