@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Flask Boilerplate for Profesional Development
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer/)
@@ -54,3 +55,6 @@ $ heroku create <your_application_name>
 $ git push heroku master
 ```
 :warning: For a more detailed explanation on working with .env variables or the MySQL database [read the full guide](https://github.com/4GeeksAcademy/flask-rest-hello/blob/master/docs/DEPLOY_YOUR_APP.md).
+=======
+# Homeless-Heroes
+>>>>>>> 6097a775cfcdb1fb4973cac03953970841ecc7f5
