@@ -1,0 +1,43 @@
+body {
+     background-color: linen;
+}
+.navbar {
+    background-color: rgb(54,54,54);
+    border-bottom-color: gray;
+    opacity: 80%;
+}
+.hamburger {
+    background-color: black
+}
+.list-group-item {
+    background-color: black;
+    color:rgb(224,181,63);
+}
+button.donatebtn.btn.btn-primary{
+    background-color:rgb(224,181,63);
+    border: rgb(224,181,63);
+    color: white;
+    padding: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+i.far.fa-user.fa{
+    background-color:transparent;
+    border:  transparent;
+}
+a{
+    color:white;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 250px;
+  border: rounded;
+  margin-top: 20px;
+
+}
+
+.email-holder {
+  margin-left: 20px;
+}

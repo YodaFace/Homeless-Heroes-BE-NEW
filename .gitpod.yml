@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 image:
   file: .gitpod.Dockerfile
 ports:
@@ -26,3 +27,13 @@ github:
   prebuilds:
     # enable for the master/default branch (defaults to true)
     master: false
+=======
+ports:
+    - port: 3000
+      onOpen: open-browser
+tasks:
+    - init: >
+        npm i now -g &&
+        npm install &&
+        cp .env.example .env
+>>>>>>> 667a299fafef466f4b2be4bd12f9c03d088bc071
