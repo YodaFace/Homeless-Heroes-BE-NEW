@@ -88,13 +88,13 @@ def who_is_homeless():
             raise APIException('You need to specify the password', status_code=400)
         if 'currently_homless' not in body:
             raise APIException('You need to specify if you are homeless or not', status_code=400)
-        if 'story' not in body:
-            raise APIException('It always helps to tell others a little bit about yourself.', status_code=200)
-        
+        story = ''
+        if "story" in body:
+            story = body['story']
         homeless_person = Homeless_User(username=body['username'], 
         email=body['email'], 
         password=body['password'],currently_homless=body['currently_homless'],
-        story=body['story'],)
+        story=story)
 
         db.session.add(homeless_person)
         db.session.commit()
