@@ -13,6 +13,7 @@ class Homeless_User(db.Model):
     currently_homless = db.Column(db.Boolean, unique=False, nullable=False)
     date_joined = db.Column(db.DateTime, default=datetime.datetime.utcnow, nullable=False)
     story = db.Column(db.String(10000), unique=False, nullable=True)
+    phone_number = db.Column(db.String(20), unique=True, nullable=True)
     
     ## RELATIONSHIPS ##
     primary_shelter = db.relationship('Shelter', backref='homeless_user', lazy=True)

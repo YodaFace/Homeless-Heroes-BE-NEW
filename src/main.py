@@ -84,6 +84,9 @@ def who_is_homeless():
             raise APIException('You need to specify the username', status_code=400)
         if 'email' not in body:
             raise APIException('You need to specify the email', status_code=400)
+        existing_user = Homeless_User.query.filter_by(email=body["email"]).first()
+        if existing_user is not None:
+            raise APIException('Please check your email is correct', status_code=400)
         if 'password' not in body:
             raise APIException('You need to specify the password', status_code=400)
         if 'currently_homless' not in body:
@@ -94,7 +97,9 @@ def who_is_homeless():
         homeless_person = Homeless_User(username=body['username'], 
         email=body['email'], 
         password=body['password'],currently_homless=body['currently_homless'],
-        story=story)
+        story=story,
+        phone_number=body['phone_number']) 
+
 
         db.session.add(homeless_person)
         db.session.commit()
@@ -109,15 +114,15 @@ def who_is_homeless():
     return "Invalid Method", 404
 
 
-#############
-# PUT request
-#############
+
+################ 
+# Single person
+################
+
+
 @app.route('/futurehomeowner/<int:homeless_user_id>', methods=['PUT', 'GET', 'DELETE'])
 def get_homeless_person(homeless_user_id):
-    """
-    Single person
-    """
-    # PUT request
+# PUT request
     if request.method == 'PUT':
         body = request.get_json()
         if body is None:
@@ -131,7 +136,7 @@ def get_homeless_person(homeless_user_id):
         #     user1.email = body["email"]
         db.session.commit()
         return jsonify(user1.serialize()), 200
-    # GET request
+# GET request
     if request.method == 'GET':
         user1 = Homeless_User.query.get(homeless_user_id)
         if user1 is None:
