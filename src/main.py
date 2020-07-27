@@ -99,8 +99,6 @@ def who_is_homeless():
         password=body['password'],currently_homless=body['currently_homless'],
         story=story,
         phone_number=body['phone_number']) 
-
-
         db.session.add(homeless_person)
         db.session.commit()
         return "ok", 200
@@ -189,7 +187,7 @@ def i_am_a_shelter():
         if 'address_1' and 'address_2'not in body:
             raise APIException('You need to specify the address.', status_code=400)
         
-        shelter_object = Shelter(shelter_name=body['shelter_name'], shelter_to_homeless_user=body["shelter_to_homeless_user"], address_1=body['address_1'], address_2=body['address_2'])
+        shelter_object = Shelter(shelter_name=body['shelter_name'], address_1=body['address_1'], address_2=body['address_2'])
         db.session.add(shelter_object)
         db.session.commit()
         return "ok", 200
@@ -274,7 +272,6 @@ def i_am_helping_someone():
         return jsonify(all_deposits), 200
 
     return "Invalid Method", 404
-
 
 
 # this only runs if `$ python src/main.py` is executed
