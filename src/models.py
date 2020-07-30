@@ -30,7 +30,8 @@ class Homeless_User(db.Model):
             "username": self.username,
             "joined": self.date_joined,
             "shelter": list(map(lambda x: x.serialize(), self.primary_shelter)),
-            "deposit": list(map(lambda x: x.serialize(), self.deposit))
+            "deposit": list(map(lambda x: x.serialize(), self.deposit)),
+            "currently_homless": self.currently_homless
             # "contributor": self.contributor,
         }
 

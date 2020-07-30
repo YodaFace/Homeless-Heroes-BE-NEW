@@ -66,7 +66,7 @@ def login():
 
 
     # Identity can be any data that is json serializable
-    ret = {'jwt': create_jwt(identity=user.id), "user_id": user.id}
+    ret = {'jwt': create_jwt(identity=user.id), "user_id": user.id, "homelessornot": user.currently_homless}
     return jsonify(ret), 200
 
 
