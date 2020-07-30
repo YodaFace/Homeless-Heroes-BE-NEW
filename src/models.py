@@ -7,9 +7,9 @@ db = SQLAlchemy()
 class Homeless_User(db.Model):
     __tablename__ = 'homeless_user'
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
+    username = db.Column(db.String(80), unique=False, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String(120), unique=False, nullable=False)
     currently_homless = db.Column(db.Boolean, unique=False, nullable=False)
     date_joined = db.Column(db.DateTime, default=datetime.datetime.utcnow, nullable=False)
     story = db.Column(db.String(10000), unique=False, nullable=True)
